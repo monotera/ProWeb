@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="js-form.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <title>JS Validation form</title>
+  </head>
+  <body class="wrapper-body">
+    <header class="wrapper-header">
+      <nav>
+        <div class="logo">
+          <h3>Basic Form</h3>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="https://github.com/monotera">About</a></li>
+          <li><a href="#">Work</a></li>
+          <li><a href="#">Project</a></li>
+          <li><a href="https://github.com/monotera">Contact</a></li>
+        </ul>
+        <div class="burger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+      </nav>
+    </header>
+    <main class="wrapper-main">
+      <article class="wrapper-article">
+        <form>
+          <fieldset class="wrapper-fieldset">
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" name="firstname" /><br />
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" name="lastname" /><br />
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" /><br />
+            <label for="dateob">Date of birth:</label>
+            <input
+              type="text"
+              id="dateob"
+              name="dateob"
+              placeholder=" DD/MM/YYYY"
+            /><br />
+          </fieldset>
+          <fieldset class="wrapper-fieldset">
+            <label for="gender">Gender:</label>
+            <select id="gender">
+              <option value="male" selected>Male</option>
+              <option value="female">Female</option>
+              <option value="both">Both</option>
+            </select>
+          </fieldset>
+          <fieldset class="wrapper-fieldset">
+            <legend>Choose your socioeconomic status:</legend>
+            <input type="radio" name="items" value="1" checked />
+            <label for="one">1</label><br />
+            <input type="radio" name="items" value="2" />
+            <label for="two">2</label><br />
+            <input type="radio" name="items" value="3" />
+            <label for="three">3</label><br />
+            <input type="radio" name="items" value="4" />
+            <label for="four">4</label><br />
+            <input type="radio" name="items" value="5" />
+            <label for="five">5</label><br />
+            <input type="radio" name="items" value="6" />
+            <label for="six">6</label>
+          </fieldset>
+          <button type="submit" class="submitBtn">Submit</button>
+          <button type="reset" class="resetBtn">Reset</button>
+        </form>
+      </article>
+      <aside class="wrapper-aside">
+        <h2>Personal information</h2>
+        <div class="wrapper-fieldset">
+          <p id="firstNameAnswer">First name:</p>
+          <p id="lastNameAnswer">Last name:</p>
+          <p id="emailAnswer">Email:</p>
+          <p id="dateAnswer">Date:</p>
+          <p id="genderAnswer">Gender:</p>
+          <p id="econStatusAnswer">Socioeconomic status:</p>
+        </div>
+      </aside>
+    </main>
+    <footer class="wrapper-footer">
+      <p>©Copyright Nelson Mosquera 2019.</p>
+    </footer>
+    <script src="js-form.js"></script>
+  </body>
+</html>
