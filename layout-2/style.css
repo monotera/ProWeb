@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  .wrapper-header {
+    display: flex;
+    font-size: 1.9rem;
+  }
+.img-logo {
+  width: 4rem;
+}
+.textSection {
+  padding: 1.5em;
+  font-size: 2rem;
+  color: white;
+  background: linear-gradient(to bottom right,#485563, #29323c);
+}
+.kitty {
+  width: 50rem;
+}
+.catPhotos {
+  display: grid;
+  flex-flow: 1rem 2rem 3rem 4rem;
+}
