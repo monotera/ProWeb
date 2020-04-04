@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+    margin: 0.2em;
+    padding: 0;
+}
+
+.wrapper-body {
+    align-items: center;
+    border: blue solid 3px;
+    display: flex;
+    font-size: 1.2em;
+    flex-flow: column wrap;
+    margin: 20em;
+}
+
+@media screen and (min-width: 1600px) {
+    .wrapper-body {
+        border: black solid 3px;
+        font-size: 2em;
+        padding: .5em;
+    }
+}
