@@ -1,9 +1,13 @@
+@font-face {
+    font-family: "fontHelvetica";
+    src: url("https://pushdev-code.github.io/shoping-cart/public/fonts/helveticaneue_medium-webfont.woff2");
+}
 body {
     margin: 0;
     padding: 0;
 }
 
-/*.header-wrapper {
+.header-wrapper {
     background: rgb(2, 0, 36);
     background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 33, 121, 1) 17%, rgba(0, 212, 255, 1) 100%);
     flex-direction: column;
@@ -28,13 +32,14 @@ body {
 
 .article-wrapper p {
     border-style: solid;
-}*/
+}
 
 
 .footer-wrapper {
     background-color: #252525;
     color: white;
     display: block;
+    font-family: 'fontHelvetica';
     overflow: hidden;
     padding: 5em 0;
     position: relative;
@@ -83,7 +88,7 @@ body {
     z-index: 1;
 }
 
-.footer-wrapper-img,
+.footer-wrapper-left,
 .footer-wrapper-right {
     margin: auto;
     max-width: 550px;
@@ -106,13 +111,13 @@ body {
     content: "";
     height: 1.7px;
     position: absolute;
-    top: -3.5px;
+    top: -3px;
     width: 100%;
     z-index: 1;
 }
 
 .footer-wrapper-centerLine:after {
-    top: 3px;
+    top: 3.5px;
 }
 
 .footer-wrapper-toggler {
@@ -236,11 +241,18 @@ body {
 
     .footer-wrapper-ul .footer-wrapper-list .footer-a,
     .footer-wrapper-ul .footer-wrapper-list .active {
-        padding: 3em;
+        padding: 2em;
     }
 
-    .footer-wrapper-img {
+    .footer-wrapper-left {
         flex: 1;
         padding: 1em;
+    }
+}
+
+@media screen and (min-width: 822px) {
+    .footer-wrapper-ul .footer-wrapper-list .footer-a,
+    .footer-wrapper-ul .footer-wrapper-list .active {
+        padding: 3em;
     }
 }
