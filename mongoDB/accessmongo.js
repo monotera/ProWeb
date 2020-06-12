@@ -1,25 +1,24 @@
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 //Init
 const app = express();
-require('./database');
-
+require("./database");
 
 //settings
 app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
-app.set('port', process.env.PORT || 3000);
+app.set("port", process.env.PORT || 3000);
 
 //Middlewares
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 //Server listening
-app.listen(app.get('port'), () => {
-  console.log('Server on port ', app.get('port'));
+app.listen(app.get("port"), () => {
+  console.log("Server on port ", app.get("port"));
 });
 
 //Variables
@@ -44,6 +43,17 @@ app.get("/viewall", function (req, res) {
     console.log("\nProducts !");
     console.log(prds);
     renderResult(res, prds, "Product List from MongoDB :");
+  });
+});
+
+app.get("/insertId", function (req, res) {
+  res.render("viewProduct.ejs");
+});
+
+app.get("/viewproduct", (req, res) => {
+  Product.find({ prdId: req.query.ProductId }, (err, prd) => {
+    console.log(prd);
+    renderResult(res, prd, "Product List from MongoDB :");
   });
 });
 
