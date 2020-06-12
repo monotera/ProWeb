@@ -1,8 +1,12 @@
-const mongoose = require("mongoose");
-var express = require("express");
-var app = express();
+const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
+const mongoose = require('mongoose');
+
+//Init
+const app = express();
+require('./database');
+
 
 //settings
 app.set("views", __dirname + "/views");
@@ -13,35 +17,20 @@ app.set('port', process.env.PORT || 3000);
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, "public")));
 
-//Mongoose settings
-mongoose.set("useNewUrlParser", true);
-mongoose.set("useFindAndModify", false);
-mongoose.set("useCreateIndex", true);
-mongoose.set("useUnifiedTopology", true);
-
 //Server listening
 app.listen(app.get('port'), () => {
   console.log('Server on port ', app.get('port'));
 });
-mongoose
-  .connect("mongodb://localhost/notes-db-app", {
-    useCreateIndex: true,
-    useNewUrlParser: true,
-    useFindAndModify: false,
-  })
-  .then((db) => console.log("Data base is connected"))
-  .catch((err) => console.error(err));
 
-// variables
-
-var productSchema = new mongoose.Schema({
+//Variables
+let productSchema = new mongoose.Schema({
   prdId: String,
   name: {
     type: String,
   },
   price: Number,
 });
-var Product = mongoose.model("Product", productSchema);
+let Product = mongoose.model("Product", productSchema);
 
 //getters
 app.get("/", function (req, res) {
