@@ -1,47 +1,35 @@
-const mongoose = require("mongoose");
-var express = require("express");
-var app = express();
+const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+
+//Init
+const app = express();
+require("./database");
 
 //settings
 app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
-app.set('port', process.env.PORT || 3000);
+app.set("port", process.env.PORT || 3000);
 
 //Middlewares
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
-//Mongoose settings
-mongoose.set("useNewUrlParser", true);
-mongoose.set("useFindAndModify", false);
-mongoose.set("useCreateIndex", true);
-mongoose.set("useUnifiedTopology", true);
-
 //Server listening
-app.listen(app.get('port'), () => {
-  console.log('Server on port ', app.get('port'));
+app.listen(app.get("port"), () => {
+  console.log("Server on port ", app.get("port"));
 });
-mongoose
-  .connect("mongodb://localhost/notes-db-app", {
-    useCreateIndex: true,
-    useNewUrlParser: true,
-    useFindAndModify: false,
-  })
-  .then((db) => console.log("Data base is connected"))
-  .catch((err) => console.error(err));
 
-// variables
-
-var productSchema = new mongoose.Schema({
+//Variables
+let productSchema = new mongoose.Schema({
   prdId: String,
   name: {
     type: String,
   },
   price: Number,
 });
-var Product = mongoose.model("Product", productSchema);
+let Product = mongoose.model("Product", productSchema);
 
 //getters
 app.get("/", function (req, res) {
@@ -55,6 +43,17 @@ app.get("/viewall", function (req, res) {
     console.log("\nProducts !");
     console.log(prds);
     renderResult(res, prds, "Product List from MongoDB :");
+  });
+});
+
+app.get("/insertId", function (req, res) {
+  res.render("viewProduct.ejs");
+});
+
+app.get("/viewproduct", (req, res) => {
+  Product.find({ prdId: req.query.ProductId }, (err, prd) => {
+    console.log(prd);
+    renderResult(res, prd, "Product List from MongoDB :");
   });
 });
 
