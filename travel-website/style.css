@@ -1,0 +1,142 @@
+/*Fonts */
+@font-face {
+    font-family: "fontPoppinsMed";
+    src: url("./fonts/Poppins-Medium.ttf");
+}
+
+@font-face {
+    font-family: "fontPoppinsRegular";
+    src: url("./fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+    font-family: "fontLogo";
+    src: url("./fonts/Pattaya-Regular.ttf");
+    font-weight: regular;
+}
+
+@font-face {
+    font-family: fontNav;
+    src: url("./fonts/helveticaneue_medium-webfont.woff2");
+}
+
+/*Global Styles*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+h3 {
+    font-size: 3rem;
+    font-family: fontPoppinsRegular, sans-serif;
+}
+
+body {
+    font-family: fontPoppinsMed, sans-serif;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+li,
+button,
+label,
+input,
+p {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 4.8rem;
+}
+
+
+
+h4,
+h5 {
+    font-size: 2.8rem;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+button {
+    background-color: #4c6e97;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font: 1.8rem;
+    padding: 2rem 6rem;
+}
+
+
+/* Nav section with hero*/
+
+.header-wrapper {
+    background-color: #131c27;
+    color: white;
+}
+
+.header-wrapper-nav {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    font-family: fontNav, sans-serif;
+    margin: auto;
+    min-height: 10vh;
+    padding: 2rem;
+    width: 90%;
+}
+
+.header-wrapper-ul {
+    align-items: center;
+    display: flex;
+    flex: 1 1 40rem;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.logo {
+    flex: 2 1 40rem;
+    font-family: fontLogo, sans-serif;
+}
+
+.hero {
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), transparent), url("./img/landing-page.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 90vh;
+    text-align: center;
+}
+
+.hero h3 {
+    padding: 5rem;
+}
+
+@media screen and (max-width: 932px) {
+    .header-wrapper-nav {
+        text-align: center;
+    }
+    .logo {
+        padding: 1rem;
+    }
+}
+@media screen and (max-width: 672px) {
+    html {
+        font-size: 45%;
+    }
+}
