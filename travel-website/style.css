@@ -75,6 +75,10 @@ button {
     padding: 2rem 6rem;
     transition: background 0.4s ease-in-out;
 }
+button:focus {
+    background: #1e2d3f;
+    outline: solid;
+}
 
 button:hover {
     background-color: #27394e;
@@ -116,7 +120,7 @@ button:hover {
 
 .hero {
     align-items: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), transparent), url("./img/landing-page.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.8), transparent), url("./img/landing-page.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
