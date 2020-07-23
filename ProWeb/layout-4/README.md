@@ -1,5 +1,5 @@
 #Preview
 ## Desktop version
-![Desltop](https://github.com/monotera/HTML-CSS-JS-learning/blob/master/layout-4/images/Desktop.png)
+![Desltop](https://github.com/monotera/HTML-CSS-JS-learning/blob/master/ProWeb/layout-4/images/Desktop.png)
 ## Mobile version
-![Mobile](https://github.com/monotera/HTML-CSS-JS-learning/blob/master/layout-4/images/mobile.png)
+![Mobile](https://github.com/monotera/HTML-CSS-JS-learning/blob/master/ProWeb/layout-4/images/mobile.png)
