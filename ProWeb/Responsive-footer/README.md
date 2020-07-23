@@ -13,4 +13,4 @@
 ## Hover
 ![hover](https://github.com/monotera/HTML-CSS-JS-learning/blob/master/ProWeb/Responsive-footer/images/hover.png)
 ## Active-Link
-![active-link](https://github.com/monotera/HTML-CSS-JS-learning/blob/ProWeb/master/Responsive-footer/images/active-link.png)
+![active-link](https://github.com/monotera/HTML-CSS-JS-learning/blob/master/ProWeb/Responsive-footer/images/active-link.png)
