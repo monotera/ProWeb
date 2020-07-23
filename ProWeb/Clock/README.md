@@ -1,2 +1,2 @@
 # Preview
-![clock](https://github.com/monotera/HTML-CSS-JS-learning/blob/master/Clock/images/clock.png)
+![clock](https://github.com/monotera/ProWeb-and-appDev-learning/blob/master/ProWeb/Clock/images/clock.png)
