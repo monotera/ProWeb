@@ -8,5 +8,25 @@ const app = new Vue({
       { name: "Dell", stock: 350 },
       { name: "HP", stock: 250 },
     ],
+    newProduct: "",
+    total: 0
   },
+  methods: {
+    addProduct() {
+      this.products.push({
+        name: this.newProduct,
+        stock: 0,
+      });
+      this.newProduct = ""
+    },
+  },
+  computed: {
+    sumProducts(){
+      this.total = 0;
+      for(product of this.products){
+        this.total += product.stock;
+      }
+      return this.total;
+    }
+  }
 });
