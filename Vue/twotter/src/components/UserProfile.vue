@@ -2,22 +2,21 @@
   <div class="user-profile">
     <div class="user-profile__sidebar">
       <div class="user-profile__user-panel">
-        <h1 class="user-profile__username">@{{ user.username }}</h1>
-        <div class="user-profile__admin-badge" v-if="user.isAdmin">Admin</div>
-        <div class="user-profile__admin-badge" v-if="!user.isAdmin">User</div>
+        <h1 class="user-profile__username">@{{ state.user.username }}</h1>
+        <div class="user-profile__admin-badge" v-if="state.user.isAdmin">Admin</div>
+        <div class="user-profile__admin-badge" v-if="!state.user.isAdmin">User</div>
         <div class="user-profile__follower-count">
-          <strong>followers: </strong> {{ followers }}
+          <strong>followers: </strong> {{ state.followers }}
         </div>
       </div>
       <create-twoot-panel @add-twoot="addTwoot" />
     </div>
     <div class="user-profile__twoots-wrapper">
       <twoot-item
-        v-for="twoot in user.twoots"
+        v-for="twoot in state.user.twoots"
         :key="twoot.id"
-        :username="user.username"
+        :username="state.user.username"
         :twoot="twoot"
-        @favourite="toggleFavorite"
       />
     </div>
   </div>
@@ -26,11 +25,12 @@
 <script>
 import CreateTwootPanel from "./CreateTwootPanel.vue";
 import TwootItem from "./TwootItem.vue";
+import { reactive } from "vue";
 export default {
   components: { TwootItem, CreateTwootPanel },
   name: "UserProfile",
-  data() {
-    return {
+  setup() {
+    const state = reactive({
       followers: 0,
       user: {
         id: 1,
@@ -44,32 +44,17 @@ export default {
           { id: 2, content: "Hello world" },
         ],
       },
-    };
-  },
-  watch: {
-    followers(newFollowerCount, oldFollowerCount) {
-      if (oldFollowerCount < newFollowerCount) {
-        console.log(`${this.user.username} gained a folower`);
-      }
-    },
-  },
-  computed: {},
-  methods: {
-    followUser() {
-      this.followers++;
-    },
-    toggleFavorite(id) {
-      console.log(`favoutied twoot ${id}`);
-    },
-    addTwoot(twoot) {
-      this.user.twoots.unshift({
-        id: this.user.twoots.length + 1,
+    });
+    function addTwoot(twoot) {
+      state.user.twoots.unshift({
+        id: state.user.twoots.length + 1,
         content: twoot,
       });
-    },
-  },
-  mounted() {
-    this.followUser();
+    }
+    return {
+      state,
+      addTwoot,
+    };
   },
 };
 </script>
