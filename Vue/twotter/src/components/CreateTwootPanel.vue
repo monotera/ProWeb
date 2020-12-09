@@ -53,8 +53,7 @@ export default {
 
 <style lang="scss">
 .create-twoot-panel {
-  margin-top: 20px;
-  padding: 20px 0;
+  padding: 1.5rem 0;
   display: flex;
   flex-direction: column;
   textarea {
@@ -63,9 +62,9 @@ export default {
   }
   .create-twoot-panel__submit {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     .create-twoot-type {
-      padding: 10px 0;
+      padding: 1rem 0;
     }
     button {
       padding: 5px 20px;
@@ -77,7 +76,9 @@ export default {
       font-weight: bold;
     }
   }
-
+  select {
+    border-radius: 5px;
+  }
   &.--exceeded {
     color: red;
     border-color: red;

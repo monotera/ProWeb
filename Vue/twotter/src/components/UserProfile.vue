@@ -76,38 +76,48 @@ export default {
 
 <style lang="scss" scoped>
 .user-profile {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-gap: 50px;
-  padding: 50px 5%;
-  .user-profile__user-panel {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    background-color: white;
-    border-radius: 5px;
-    border: 1px solid #dfe3e8;
-    margin-bottom: auto;
-    h1 {
-      margin: 0;
-      padding-bottom: 0.4rem;
-    }
-    .user-profile__follower-count {
-      padding-top: 1rem;
-    }
-    .user-profile__admin-badge {
-      background: rebeccapurple;
-      color: white;
-      border-radius: 5px;
-      margin-right: auto;
-      padding: 0.4rem 1rem;
-      font-weight: bold;
-    }
-  }
-  .user-profile__twoots-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  @media screen and (min-width: 768px) {
     display: grid;
-    grid-gap: 10px;
-    margin-bottom: auto;
+    grid-template-columns: 1fr 3fr;
+    padding: 2rem 1rem;
+  }
+  .user-profile__sidebar {
+    @media screen and (min-width: 768px) {
+      margin-right: 1rem;
+    }
+    .user-profile__user-panel {
+      display: flex;
+      flex-direction: column;
+      padding: 0.9rem;
+      background-color: white;
+      border-radius: 5px;
+      border: 1px solid #dfe3e8;
+      margin-bottom: auto;
+      text-align: center;
+      @media screen and (min-width: 768px) {
+        text-align: start;
+      }
+      .user-profile__username {
+        margin: 0;
+        padding-bottom: 0.4rem;
+      }
+      .user-profile__follower-count {
+        padding-top: 1rem;
+      }
+      .user-profile__admin-badge {
+        background: rebeccapurple;
+        color: white;
+        border-radius: 5px;
+        padding: 0.4rem 1rem;
+        font-weight: bold;
+        @media screen and (min-width: 768px) {
+          margin-right: 25rem;
+        }
+      }
+    }
   }
 }
 </style>

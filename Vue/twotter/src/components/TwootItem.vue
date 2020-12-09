@@ -32,7 +32,7 @@ export default {
 
 <style lang="scss" scoped>
 .twoot-item {
-  padding: 20px;
+  padding: 1.5rem;
   background-color: white;
   border-radius: 5px;
   border: 1px solid #dfe3e8;
