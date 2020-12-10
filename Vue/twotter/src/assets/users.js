@@ -1,5 +1,6 @@
-{
-    "users":[{
+export const users=
+[
+    {
         "id": 1,
         "username": "monotera",
         "fistName": "Nelson",
@@ -24,16 +25,12 @@
         ]
     },
     {
-        "id": 1,
+        "id": 3,
         "username": "fake23",
         "fistName": "Jaime",
         "lastName": "Rodriguez",
         "email": "email3@gmail.com",
         "isAdmin": false,
-        "twoots": [
-          { "id": 1, "content": "My first Twoot" },
-          { "id": 2, "content": "Hello world" }
-        ]
+        "twoots": []
     }
 ]
-}
