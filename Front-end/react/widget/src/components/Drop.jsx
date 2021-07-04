@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import DropDown from "./DropDown";
 
-const Drop = ({ selected, setSelected, options }) => {
+const Drop = ({ options }) => {
+  const [selected, setSelected] = useState(options[0]);
   return (
     <div>
       <DropDown
