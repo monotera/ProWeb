@@ -2,24 +2,6 @@
   font-family: "montserrat-semiBold";
   src: url("../fonts/Montserrat-SemiBold.ttf");
 }
-/*Global styling*/
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 62.5%;
-}
-
-a {
-  text-decoration: none;
-}
-
-ul {
-  list-style: none;
-}
 
 /* main style */
 .body-home {
@@ -37,8 +19,11 @@ img {
   top: 5em;
   right: 3em;
   z-index: 3;
+  border: black solid 3px;
+  border-radius: 500px;
+  box-shadow: 10px 0 10px 0 rgba(0, 0, 0, 0.305);
 }
-.l {
+.left-section {
   position: absolute;
   top: 20em;
   right: 20em;
@@ -63,7 +48,7 @@ img {
   right: -3em;
   z-index: 1;
 }
-.r {
+.right-section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -149,5 +134,8 @@ img {
   .description {
     font-size: 1em;
     width: 100%;
+  }
+  .left-section {
+    display: none;
   }
 }
