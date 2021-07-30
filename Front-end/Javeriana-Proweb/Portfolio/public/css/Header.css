@@ -6,117 +6,48 @@
   font-family: "pattaya-regular";
   src: url("../fonts/Pattaya-Regular.ttf");
 }
-
-/*Global styling*/
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
-  color: white;
-}
-
-ul {
-  list-style: none;
-}
-
 .header-home {
-  background-color: #5b78c7;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
-  padding: 1.2rem 0;
+  width: 100vw;
+  margin: auto;
+  height: 10vh;
 }
 .header-title-home {
   font-family: pattaya-regular, sans-serif;
   color: white;
+  padding: 1em 0;
+  font-size: 2.5em;
 }
 
-.nav-links {
+.nav-ul-home {
   display: flex;
   font-family: poppins-medium, sans-serif;
 }
 
-.nav-links li a {
-  padding: 0 2rem;
-  transition: all 0.3s ease-out;
+.nav-ul-home li a {
+  padding: 0 2.5rem;
+  transition: all 0.3ms ease-out;
 }
 
-.nav-links li a:hover {
-  color: lightseagreen;
-  transition: all 0.3s ease-in;
-}
-.hamburger {
-  display: none;
+.nav-ul-home li a:hover,
+.nav-ul-home li a:focus {
+  color: rgb(43, 192, 185);
+  transition: all 0.3ms ease-in;
 }
 
-/*Mobile style*/
+.link {
+  color: white;
+  font-size: 1.5em;
+}
+.active {
+  color: rgb(43, 192, 185);
+}
 
-@media screen and (max-width: 785px) {
-  .line {
-    width: 30px;
-    height: 3px;
-    background: white;
-    margin: 5px;
-    border-radius: 10px;
-  }
-
-  .hamburger {
-    display: block;
-    cursor: pointer;
-  }
-  .hamburger-open {
-    position: absolute;
-    top: 1.8em;
-    cursor: pointer;
-    align-self: flex-end;
-    padding: 0 1rem;
-  }
-  .header-home {
-    position: fixed;
-    background-color: #5b78c7;
-    height: 15vh; /**/
-    width: 100vw;
-    flex-flow: nowrap row-reverse;
-    justify-content: space-evenly;
-  }
-  .header-home-open {
-    /*height: 100vh;*/
-    flex-flow: nowrap column;
-    justify-content: flex-start;
-  }
-  .header-title-home {
-    flex: 0.8;
-  }
-  .header-title-home-open {
-    border-bottom: solid white 1px;
-    padding: 0 3rem;
-    flex: 0;
-  }
-  .nav-links {
-    display: none; /**/
-    flex-direction: column;
-    text-align: center;
-    justify-content: space-around;
-    background-color: #5b78c7;
-
-    clip-path: circle(100px at 90% -20%);
-    -webkit-clip-path: circle(100px at 90% -20%);
-    transition: all 0.8s ease-out;
-  }
-  .nav-open {
-    display: flex;
-    clip-path: circle(500px at 90% 10%);
-    transition: all 0.8s ease-out;
-    height: 100vh;
-    width: 100vw;
-  }
-
-  .nav-links li a {
-    padding: 5rem 0;
+@media screen and (max-width: 480px) {
+  .link {
+    font-size: 1.2em;
   }
 }
