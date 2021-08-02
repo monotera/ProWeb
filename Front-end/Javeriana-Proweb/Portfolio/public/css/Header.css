@@ -29,6 +29,10 @@ nav {
   height: 10vh;
 }
 
+i {
+  color: white;
+}
+
 .nav-links {
   display: flex;
   width: 50%;
@@ -72,6 +76,9 @@ nav {
 }
 
 .hamburger {
+  background-color: #5b78c77a;
+  border-radius: 1000px;
+  padding: 0.6em;
   position: fixed;
   cursor: pointer;
   top: 5%;
@@ -98,6 +105,8 @@ nav {
   clip-path: circle(2000px at 90% -20%);
   -webkit-clip-path: circle(2000px at 90% -20%);
   pointer-events: all;
+  width: 100%;
+  height: 100%;
 }
 
 .nav-link.active {
@@ -127,6 +136,14 @@ nav {
 .nav-links li:nth-child(4) {
   transition: all 0.5s ease 0.6s;
 }
+.nav-links li:nth-child(5) {
+  transition: all 0.5s ease 0.7s;
+}
 li.fade {
   opacity: 1;
+}
+
+.social {
+  padding: 0 0.5em;
+  font-size: 2.5em;
 }
