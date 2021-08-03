@@ -12,7 +12,7 @@ app.use(express.static(__dirname + "/public"));
 app.use("/*", (req, res) => {
   res
     .status(200)
-    .sendFile(path.join(__dirname, "src", "views", "Interests.html"));
+    .sendFile(path.join(__dirname, "src", "views", "Experience.html"));
 });
 
 app.listen(port, () => {
