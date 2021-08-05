@@ -49,6 +49,7 @@
   z-index: 1;
 }
 .right-section {
+  z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -73,7 +74,10 @@
 .title {
   font-size: 4rem;
 }
-
+.break-line::before {
+  content: "";
+  display: block;
+}
 .subtitle {
   font-size: 3.6em;
 }
