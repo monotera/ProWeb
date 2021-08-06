@@ -176,3 +176,18 @@
   font-size: 1.5em;
   color: rgb(77, 77, 77);
 }
+
+.upward {
+  background-color: #5b78c7ad;
+  position: fixed;
+  bottom: 5%;
+  right: 3%;
+  border-radius: 80px;
+  border: 2px #5b78c77a solid;
+}
+
+.arrow {
+  color: rgb(125, 255, 244);
+  padding: 0.5em;
+  font-size: 1.5em;
+}
