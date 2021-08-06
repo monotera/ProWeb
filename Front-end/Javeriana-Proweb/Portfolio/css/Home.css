@@ -1,0 +1,152 @@
+@font-face {
+  font-family: "montserrat-semiBold";
+  src: url("../fonts/Montserrat-SemiBold.ttf");
+}
+
+/* main style */
+.body-home {
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../assets/background-home.jpg");
+  box-shadow: inset 0 0 0 1000px rgba(20, 83, 200, 0.692);
+}
+
+.main-wrapper {
+  color: white;
+  height: 90vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.right-section {
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title,
+.description {
+  font-family: montserrat-semiBold;
+  text-align: center;
+}
+
+.title {
+  font-size: 4rem;
+}
+
+.break-line::before {
+  content: "";
+  display: block;
+}
+
+.subtitle {
+  font-size: 3.6em;
+}
+
+.subtitle-wrapper {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.description {
+  font-size: 1.5em;
+  width: 40%;
+}
+
+.point {
+  margin: 0 1rem;
+  background-color: white;
+  width: 1em;
+  border-radius: 10px;
+  height: 1em;
+}
+
+.home-btn {
+  margin: 2em 0;
+  margin-bottom: 8em;
+  border-radius: 50px;
+  border: white 3px solid;
+  background-color: rgb(43, 192, 185);
+  width: 20em;
+  height: 2em;
+  font-size: 1.5em;
+  font-weight: normal;
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+  color: white;
+}
+
+.home-btn:hover,
+.home-btn:focus {
+  border: lightseagreen 3px solid;
+  background-color: white;
+  color: lightseagreen;
+  transition: all 0.3s ease-in;
+}
+
+.left-section {
+  position: absolute;
+  top: 20em;
+  right: 20em;
+}
+
+.profile-picture {
+  width: 250px;
+  position: absolute;
+  top: 5em;
+  right: 3em;
+  z-index: 3;
+  border: black solid 3px;
+  border-radius: 500px;
+  box-shadow: 10px 0 10px 0 rgba(0, 0, 0, 0.305);
+}
+
+.circle {
+  position: absolute;
+  background-color: rgba(113, 4, 255, 0.685);
+  width: 20em;
+  border-radius: 100px;
+  height: 20em;
+  top: 15em;
+  right: 15em;
+  z-index: 2;
+}
+
+.circle2 {
+  position: absolute;
+  background-color: rgba(4, 217, 255, 0.616);
+  width: 20em;
+  border-radius: 100px;
+  height: 20em;
+  top: 2em;
+  right: -3em;
+  z-index: 1;
+}
+
+/*Mobile styling*/
+@media screen and (max-width: 480px) {
+  .main-wrapper {
+    margin: 0 0.5em;
+  }
+  .title {
+    font-size: 3em;
+    width: 100%;
+  }
+  .subtitle {
+    font-size: 2.5em;
+  }
+  .description {
+    font-size: 1em;
+    width: 100%;
+  }
+  .left-section {
+    display: none;
+  }
+}

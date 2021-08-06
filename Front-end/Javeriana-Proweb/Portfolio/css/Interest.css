@@ -1,0 +1,130 @@
+@font-face {
+  font-family: "montserrat-semiBold";
+  src: url("../fonts/Montserrat-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "montserrat-regular";
+  src: url("../fonts/Montserrat-Regular.ttf");
+}
+
+.body-interests {
+  background-color: #6d8fed;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23173cb5' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%23c5c5c5'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='539' cy='269' r='5'/%3E%3Ccircle cx='603' cy='493' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='660' r='5'/%3E%3Ccircle cx='309' cy='538' r='5'/%3E%3Ccircle cx='295' cy='764' r='5'/%3E%3Ccircle cx='40' cy='599' r='5'/%3E%3Ccircle cx='102' cy='382' r='5'/%3E%3Ccircle cx='127' cy='80' r='5'/%3E%3Ccircle cx='370' cy='105' r='5'/%3E%3Ccircle cx='578' cy='42' r='5'/%3E%3Ccircle cx='237' cy='261' r='5'/%3E%3Ccircle cx='390' cy='382' r='5'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.background {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100em;
+  margin: 2rem auto;
+  background-color: #ffffff;
+  border-radius: 40px;
+  padding: 5em;
+}
+
+.interests-title {
+  font-family: montserrat-semiBold;
+  font-size: 5em;
+  border-bottom: 10px solid;
+  border-image-slice: 1;
+  border-width: 3px;
+  text-align: center;
+}
+
+.favorite-music,
+.gamming {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin: 3em 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.favorite-music:hover,
+.gamming:hover {
+  border: #6d8fed5e 2px solid;
+  background-color: aliceblue;
+  transition: all 0.3s ease-in-out;
+}
+.interests-subTittle {
+  font-family: montserrat-semiBold;
+  font-size: 3em;
+  margin: 1em 0;
+  border-bottom: 10px solid;
+  border-image-slice: 1;
+  border-width: 2px;
+}
+.interests-description {
+  font-family: montserrat-regular;
+  font-size: 2em;
+  text-align: center;
+}
+.music-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 25px;
+  row-gap: 25px;
+  margin: 5em;
+}
+.thumbnail {
+  width: 300px;
+  transition: all 0.2s ease-out;
+  border-radius: 10px;
+}
+
+.thumbnail:hover,
+.thumbnail:focus {
+  width: 350px;
+  transition: all 0.2s ease-in;
+  border: solid rgb(70, 219, 212) 3px;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-title {
+  font-family: montserrat-semiBold;
+  font-size: 1.5em;
+}
+
+.border-gradient {
+  border-image-source: linear-gradient(
+    90deg,
+    rgba(255, 187, 187, 1) 0%,
+    rgba(142, 102, 255, 1) 33%,
+    rgba(131, 200, 245, 1) 72%,
+    rgba(210, 149, 205, 1) 100%
+  );
+}
+
+.border-gradient-title {
+  border-image-source: linear-gradient(
+    90deg,
+    rgba(57, 63, 240, 1) 0%,
+    rgba(119, 233, 255, 1) 52%
+  );
+}
+
+@media screen and (max-width: 760px) {
+  .interests-list {
+    display: flex;
+    flex-direction: column;
+  }
+  .interests-title {
+    font-size: 4em;
+  }
+  .interests-subTittle {
+    font-size: 3em;
+  }
+  .interests-description {
+    font-size: 1.5em;
+    padding: 0 3.5em;
+  }
+}
