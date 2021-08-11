@@ -36,7 +36,8 @@
 }
 
 .title,
-.description {
+.description,
+.subtitle {
   font-family: montserrat-semiBold;
   text-align: center;
 }
