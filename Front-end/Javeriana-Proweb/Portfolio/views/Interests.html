@@ -107,9 +107,32 @@
         </li>
       </ul>
     </section>
+    <section class="chat">
+      <h2 class="interests-subTittle border-gradient">Let's chat!</h2>
+      <p class="interests-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil obcaecati
+        exercitationem, fuga autem
+        voluptatum, veritatis illo enim id a quam similique dolores ducimus molestiae esse omnis sequi itaque cupiditate
+        praesentium.</p>
+      <form class="chat-form" action="">
+        <label class="chat-label" for=" GET-name">Name:</label>
+        <input class="chat-margin chat-input" id="GET-name" type="text" name="name">
+        <span id="error-name"></span>
+        <label class="chat-label" for="GET-msg">Message:</label>
+        <textarea class="chat-margin chat-input" name="msg" id="GET-msg" cols="30" rows="10"></textarea>
+        <span id="error-msg"></span>
+        <div class="btn-wrapper">
+          <input class="clear-btn chat-margin" id="clear-btn" type="button" value="Clear">
+          <input class="send-btn chat-margin" id="send-btn" type="button" value="Send">
+        </div>
+      </form>
     </section>
+    <section class="msgs" id="msgs">
+      <h2 class="interests-subTittle border-gradient">Messages</h2>
+    </section>
+    
   </main>
   <script src="../js/header.js"></script>
+  <script src="../js/Chat.js"></script>
 </body>
 
 </html>

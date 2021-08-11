@@ -34,7 +34,9 @@
 }
 
 .favorite-music,
-.gamming {
+.gamming,
+.chat,
+.msgs {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -45,7 +47,9 @@
 }
 
 .favorite-music:hover,
-.gamming:hover {
+.gamming:hover,
+.chat:hover,
+.msgs:hover {
   border: #6d8fed5e 2px solid;
   background-color: aliceblue;
   transition: all 0.3s ease-in-out;
@@ -63,6 +67,74 @@
   font-size: 2em;
   text-align: center;
 }
+
+.chat-label,
+.chat-btn {
+  font-family: montserrat-regular;
+  font-size: 2em;
+  font-weight: 600;
+}
+
+.chat-form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 3em 0;
+}
+
+.chat-margin {
+  margin-bottom: 2em;
+}
+
+.chat-input{
+  border: none;
+  border-bottom: 2px solid rgb(204, 204, 204);
+  background-color: rgba(255, 255, 255, 0);
+  font-family: montserrat-regular;
+  font-size: 1.5em;
+  padding: 1em;
+}
+
+.chat-input:focus {
+  border-radius: 10px;
+}
+.btn-wrapper{
+  display : flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.send-btn {
+  border: 2px solid rgb(219, 255, 179);
+  border-radius: 20px;
+  background-color: rgba(94, 149, 251, 0.87);
+  width: 40%;
+  font-family: montserrat-semiBold;
+  font-size: 1.5em;
+  color: white;
+  cursor: pointer;
+}
+.clear-btn {
+  border-radius: 20px;
+  width: 40%;
+  font-family: montserrat-semiBold;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.error {
+  border: red solid 1px;
+  border-radius: 10px;
+}
+
+#error-msg, #error-name{
+  color: red;
+  font-family: montserrat-regular;
+  font-size: 1.3em;
+  margin-bottom: 1em;
+}
+
+
 .music-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -111,6 +183,19 @@
     rgba(119, 233, 255, 1) 52%
   );
 }
+
+.msgs div  {
+  font-family: montserrat-regular;
+  font-size: 1.5em;
+
+  word-wrap: anywhere;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
 
 @media screen and (max-width: 760px) {
   .interests-list {
