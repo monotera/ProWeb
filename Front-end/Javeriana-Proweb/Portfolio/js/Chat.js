@@ -39,11 +39,11 @@ sendBtn.addEventListener("click", () => {
   }
 });
 
-clearBtn.addEventListener('click', () => {
-    userName.classList.remove("error");
-    msg.classList.remove("error");
-    userName.value = "";
-    msg.value = "";
-    errorMsg.textContent = "";
-    errorName.textContent = "";
-})
+clearBtn.addEventListener("click", () => {
+  userName.classList.remove("error");
+  msg.classList.remove("error");
+  userName.value = "";
+  msg.value = "";
+  errorMsg.textContent = "";
+  errorName.textContent = "";
+});

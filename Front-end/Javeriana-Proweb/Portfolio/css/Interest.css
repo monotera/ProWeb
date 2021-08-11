@@ -86,7 +86,7 @@
   margin-bottom: 2em;
 }
 
-.chat-input{
+.chat-input {
   border: none;
   border-bottom: 2px solid rgb(204, 204, 204);
   background-color: rgba(255, 255, 255, 0);
@@ -98,8 +98,8 @@
 .chat-input:focus {
   border-radius: 10px;
 }
-.btn-wrapper{
-  display : flex;
+.btn-wrapper {
+  display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
@@ -127,13 +127,13 @@
   border-radius: 10px;
 }
 
-#error-msg, #error-name{
+#error-msg,
+#error-name {
   color: red;
   font-family: montserrat-regular;
   font-size: 1.3em;
   margin-bottom: 1em;
 }
-
 
 .music-list {
   display: grid;
@@ -184,10 +184,10 @@
   );
 }
 
-.msgs div  {
+.msgs div {
   font-family: montserrat-regular;
   font-size: 1.5em;
-
+  padding: 1em;
   word-wrap: anywhere;
   align-items: center;
   display: flex;
@@ -195,7 +195,6 @@
   text-align: center;
   margin-bottom: 2em;
 }
-
 
 @media screen and (max-width: 760px) {
   .interests-list {
