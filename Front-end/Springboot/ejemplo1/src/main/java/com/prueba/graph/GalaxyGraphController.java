@@ -9,11 +9,15 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+import java.util.Vector;
 
 public class GalaxyGraphController {
     GalaxyGraph galaxy = new GalaxyGraph();
     ArrayList<Integer> aux = new ArrayList<>();
     Random random = new Random();
+    final static int INF = 99999;
+    ArrayList<ArrayList<Integer>> dist;
+    ArrayList<ArrayList<Integer>> next;
 
     public void generateGalaxy() {
 
@@ -36,9 +40,9 @@ public class GalaxyGraphController {
     }
 
     public void addEdge(int v, int w) {
-        galaxy.getAdjacencyList().get(v).add(w);
+        galaxy.getAdjacencyList().get(v).set(w, 1);
         if (v != w)
-            galaxy.getAdjacencyList().get(w).add(v);
+            galaxy.getAdjacencyList().get(w).set(v, 1);
     }
 
     public void clearGraph() {
@@ -47,43 +51,62 @@ public class GalaxyGraphController {
         galaxy.getAdjacencyList().clear();
     }
 
-    void BFS(int s) {
-        // Mark all the vertices as not visited(By default
-        // set as false)
-        ArrayList<Boolean> visited = new ArrayList<>(Arrays.asList(new Boolean[galaxy.getVertices()]));
-        Collections.fill(visited, Boolean.FALSE);
-        // Create a queue for BFS
-        LinkedList<Integer> queue = new LinkedList<Integer>();
+    public void floydWarshall() {
+        int i, j, k;
+        dist = new ArrayList<>(galaxy.getVertices());
+        next = new ArrayList<>(galaxy.getVertices());
+        for (i = 0; i < galaxy.getVertices(); i++) {
+            dist.add(new ArrayList<>(galaxy.getAdjacencyList().get(i)));
+            next.add(new ArrayList<>(galaxy.getAdjacencyList().get(i)));
+        }
+        for (i = 0; i < galaxy.getVertices(); i++)
+            for (j = 0; j < galaxy.getVertices(); j++) {
+                if (galaxy.getAdjacencyList().get(i).get(j) == INF)
+                    next.get(i).set(j, -1);
+                else
+                    next.get(i).set(j, j);
+            }
 
-        // Mark the current node as visited and enqueue it
-        visited.set(s, true);
-        queue.add(s);
-
-        while (queue.size() != 0) {
-            // Dequeue a vertex from queue and print it
-            s = queue.poll();
-            System.out.print(s + " ");
-            aux.add(s);
-
-            // Get all adjacent vertices of the dequeued vertex s
-            // If a adjacent has not been visited, then mark it
-            // visited and enqueue it
-            Iterator<Integer> i = galaxy.getAdjacencyList().get(s).listIterator();
-            while (i.hasNext()) {
-                int n = i.next();
-                if (!visited.get(n)) {
-                    visited.set(n, Boolean.TRUE);
-                    queue.add(n);
+        for (k = 0; k < galaxy.getVertices(); k++) {
+            for (i = 0; i < galaxy.getVertices(); i++) {
+                for (j = 0; j < galaxy.getVertices(); j++) {
+                    if (dist.get(i).get(k) == INF || dist.get(k).get(j) == INF)
+                        continue;
+                    if (dist.get(i).get(k) + dist.get(k).get(j) < dist.get(i).get(j)) {
+                        dist.get(i).set(j, dist.get(i).get(j) + dist.get(k).get(j));
+                        next.get(i).set(j, next.get(i).get(k));
+                    }
                 }
             }
         }
     }
 
-    public void print_dfs() {
-        Collections.sort(aux);
-        for (int i = 0; i < aux.size(); i++) {
-            System.out.print(aux.get(i) + " , ");
+    // Function construct the shortest
+    // path between u and v
+    public Vector<Integer> constructPath(int u, int v) {
+
+        // If there's no path between
+        // node u and v, simply return
+        // an empty array
+        if (next.get(u).get(v) == -1)
+            return null;
+
+        // Storing the path in a vector
+        Vector<Integer> path = new Vector<Integer>();
+        path.add(u);
+
+        while (u != v) {
+            u = next.get(u).get(v);
+            path.add(u);
         }
+        return path;
+    }
+
+    public void printPath(Vector<Integer> path) {
+        int n = path.size();
+        for (int i = 0; i < n - 1; i++)
+            System.out.print(path.get(i) + " -> ");
+        System.out.print(path.get(n - 1) + "\n");
     }
 
     public void printGraph() {
@@ -102,9 +125,11 @@ public class GalaxyGraphController {
                 else {
                     int size = list.size();
                     for (int j = 0; j < size; j++) {
-                        aux = Integer.toString(list.get(j));
-                        myWriter.write(aux);
-                        if (j < size - 1)
+                        if (list.get(j) != INF) {
+                            aux = Integer.toString(j);
+                            myWriter.write(aux);
+                        }
+                        if (j < size - 1 && list.get(j) != INF)
                             myWriter.write(" , ");
                     }
                 }

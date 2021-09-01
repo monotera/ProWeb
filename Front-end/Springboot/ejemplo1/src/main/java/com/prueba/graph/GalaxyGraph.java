@@ -1,18 +1,19 @@
 package com.prueba.graph;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
 public class GalaxyGraph {
     private int vertices;
     private int edges;
-
+    final static int INF = 99999;
     // Aumentar el numero si se desea mas caminos usando la ecuacion
     // MAX_EDGES * ((MAX_EDGES-1)/2)
     // Caminos totales en el grafo con 1000
-    private final int MAX_EDGES = 10;
-    private final int MAX_VERTICES = 10;
+    private final int MAX_EDGES = 1000;
+    private final int MAX_VERTICES = 40000;
 
     private Random random = new Random();
 
@@ -71,7 +72,7 @@ public class GalaxyGraph {
         this.edges = random.nextInt(computeMaxEdges(MAX_EDGES)) + 1;
         adjacencyList = new ArrayList<>(vertices);
         for (int i = 0; i < vertices; i++)
-            adjacencyList.add(new ArrayList<>());
+            adjacencyList.add(new ArrayList<>(Collections.nCopies(vertices, INF)));
     }
 
     int computeMaxEdges(int numOfVertices) {
