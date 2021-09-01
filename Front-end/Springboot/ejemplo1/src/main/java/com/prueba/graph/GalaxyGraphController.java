@@ -17,11 +17,10 @@ public class GalaxyGraphController {
 
     public void generateGalaxy() {
 
-        int c = random.nextInt(galaxy.getVertices());
-        for (int i = 0; i < galaxy.getVertices(); i++) {
-            if (c != i)
-                addEdge(c, i);
-        }
+        /*
+         * int c = random.nextInt(galaxy.getVertices()); for (int i = 0; i <
+         * galaxy.getVertices(); i++) { if (c != i) addEdge(c, i); }
+         */
 
         for (int i = 0; i < galaxy.getEdges(); i++) {
 
@@ -47,42 +46,64 @@ public class GalaxyGraphController {
         galaxy.getAdjacencyList().clear();
     }
 
-    void BFS(int s) {
-        // Mark all the vertices as not visited(By default
-        // set as false)
-        ArrayList<Boolean> visited = new ArrayList<>(Arrays.asList(new Boolean[galaxy.getVertices()]));
-        Collections.fill(visited, Boolean.FALSE);
-        // Create a queue for BFS
+    public boolean BFS(int src, int dest, ArrayList<Integer> pred, ArrayList<Integer> dist) {
+
         LinkedList<Integer> queue = new LinkedList<Integer>();
 
-        // Mark the current node as visited and enqueue it
-        visited.set(s, true);
-        queue.add(s);
+        ArrayList<Boolean> visited = new ArrayList<>(Arrays.asList(new Boolean[galaxy.getVertices()]));
+        Collections.fill(visited, Boolean.FALSE);
 
-        while (queue.size() != 0) {
-            // Dequeue a vertex from queue and print it
-            s = queue.poll();
-            System.out.print(s + " ");
-            aux.add(s);
+        visited.set(src, Boolean.TRUE);
+        dist.set(src, 0);
+        queue.add(src);
 
-            // Get all adjacent vertices of the dequeued vertex s
-            // If a adjacent has not been visited, then mark it
-            // visited and enqueue it
-            Iterator<Integer> i = galaxy.getAdjacencyList().get(s).listIterator();
-            while (i.hasNext()) {
-                int n = i.next();
-                if (!visited.get(n)) {
-                    visited.set(n, Boolean.TRUE);
-                    queue.add(n);
+        while (!queue.isEmpty()) {
+            int u = queue.remove();
+            for (int i = 0; i < galaxy.getAdjacencyList().get(u).size(); i++) {
+                if (visited.get(galaxy.getAdjacencyList().get(u).get(i)) == false) {
+                    visited.set(galaxy.getAdjacencyList().get(u).get(i), Boolean.TRUE);
+                    dist.set(galaxy.getAdjacencyList().get(u).get(i), dist.get(u) + 1);
+                    pred.set(galaxy.getAdjacencyList().get(u).get(i), u);
+                    queue.add(galaxy.getAdjacencyList().get(u).get(i));
+
+                    if (galaxy.getAdjacencyList().get(u).get(i) == dest)
+                        return true;
                 }
             }
         }
+        return false;
     }
 
-    public void print_dfs() {
-        Collections.sort(aux);
-        for (int i = 0; i < aux.size(); i++) {
-            System.out.print(aux.get(i) + " , ");
+    // function to print the shortest distance and path
+    // between source vertex and destination vertex
+    public void printShortestDistance(int s, int dest) {
+        // predecessor[i] array stores predecessor of
+        // i and distance array stores distance of i
+        // from s
+        ArrayList<Integer> pred = new ArrayList<>(Collections.nCopies(galaxy.getVertices(), -1));
+        ArrayList<Integer> dist = new ArrayList<>(Collections.nCopies(galaxy.getVertices(), Integer.MAX_VALUE));
+
+        if (BFS(s, dest, pred, dist) == false) {
+            System.out.println("Given source and destination" + "are not connected");
+            return;
+        }
+
+        // LinkedList to store path
+        LinkedList<Integer> path = new LinkedList<Integer>();
+        int crawl = dest;
+        path.add(crawl);
+        while (pred.get(crawl) != -1) {
+            path.add(pred.get(crawl));
+            crawl = pred.get(crawl);
+        }
+
+        // Print distance
+        System.out.println("Shortest path length is: " + dist.get(dest));
+
+        // Print path
+        System.out.println("Path is ::");
+        for (int i = path.size() - 1; i >= 0; i--) {
+            System.out.print(path.get(i) + " ");
         }
     }
 

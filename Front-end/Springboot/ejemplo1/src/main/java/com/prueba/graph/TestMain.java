@@ -6,8 +6,6 @@ public class TestMain {
         System.out.println("The generated random graph :");
         graphController.generateGalaxy();
         graphController.printGraph();
-        graphController.BFS(0);
-        System.out.println("asd");
-        graphController.print_dfs();
+        graphController.printShortestDistance(0, 5000);
     }
 }

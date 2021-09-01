@@ -11,8 +11,8 @@ public class GalaxyGraph {
     // Aumentar el numero si se desea mas caminos usando la ecuacion
     // MAX_EDGES * ((MAX_EDGES-1)/2)
     // Caminos totales en el grafo con 1000
-    private final int MAX_EDGES = 10;
-    private final int MAX_VERTICES = 10;
+    private final int MAX_EDGES = 1000;
+    private final int MAX_VERTICES = 40000;
 
     private Random random = new Random();
 
