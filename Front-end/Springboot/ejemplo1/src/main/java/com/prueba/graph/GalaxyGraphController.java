@@ -15,7 +15,6 @@ public class GalaxyGraphController {
     GalaxyGraph galaxy = new GalaxyGraph();
     ArrayList<Integer> aux = new ArrayList<>();
     Random random = new Random();
-    private int c;
 
     public void generateGalaxy() {
         generateGraph();
@@ -103,19 +102,18 @@ public class GalaxyGraphController {
 
         while (!queue.isEmpty()) {
             int u = queue.remove();
-            if (u != c) {
-                for (int i = 0; i < galaxy.getAdjacencyList().get(u).size(); i++) {
-                    if (visited.get(galaxy.getAdjacencyList().get(u).get(i)) == false) {
-                        visited.set(galaxy.getAdjacencyList().get(u).get(i), Boolean.TRUE);
-                        dist.set(galaxy.getAdjacencyList().get(u).get(i), dist.get(u) + 1);
-                        pred.set(galaxy.getAdjacencyList().get(u).get(i), u);
-                        queue.add(galaxy.getAdjacencyList().get(u).get(i));
+            for (int i = 0; i < galaxy.getAdjacencyList().get(u).size(); i++) {
+                if (visited.get(galaxy.getAdjacencyList().get(u).get(i)) == false) {
+                    visited.set(galaxy.getAdjacencyList().get(u).get(i), Boolean.TRUE);
+                    dist.set(galaxy.getAdjacencyList().get(u).get(i), dist.get(u) + 1);
+                    pred.set(galaxy.getAdjacencyList().get(u).get(i), u);
+                    queue.add(galaxy.getAdjacencyList().get(u).get(i));
 
-                        if (galaxy.getAdjacencyList().get(u).get(i) == dest)
-                            return true;
-                    }
+                    if (galaxy.getAdjacencyList().get(u).get(i) == dest)
+                        return true;
                 }
             }
+
         }
         return false;
     }

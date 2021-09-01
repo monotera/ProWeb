@@ -9,17 +9,17 @@ public class TestMain {
         graphController.generateGalaxy();
         graphController.printGraph();
         System.out.println("------caso1---------");
-        graphController.printShortestDistance(58, 3000);
+        graphController.printShortestDistance(0, 1);
         System.out.println("------caso2---------");
-        graphController.printShortestDistance(1, 4);
+        graphController.printShortestDistance(10, 4);
         System.out.println("------caso3---------");
         graphController.printShortestDistance(1, 5);
         System.out.println("------caso4---------");
-        graphController.printShortestDistance(5, 59);
+        graphController.printShortestDistance(5, 0);
         System.out.println("------caso5---------");
-        graphController.printShortestDistance(10, 0);
+        graphController.printShortestDistance(1, 0);
         System.out.println("------caso6---------");
-        graphController.printShortestDistance(45, 8765);
+        graphController.printShortestDistance(4, 15);
 
     }
 }
