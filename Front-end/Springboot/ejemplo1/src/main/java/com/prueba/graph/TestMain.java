@@ -1,11 +1,25 @@
 package com.prueba.graph;
 
+import java.util.ArrayList;
+
 public class TestMain {
     public static void main(String[] args) {
         GalaxyGraphController graphController = new GalaxyGraphController();
         System.out.println("The generated random graph :");
         graphController.generateGalaxy();
         graphController.printGraph();
-        graphController.printShortestDistance(0, 5000);
+        System.out.println("------caso1---------");
+        graphController.printShortestDistance(58, 3000);
+        System.out.println("------caso2---------");
+        graphController.printShortestDistance(1, 4);
+        System.out.println("------caso3---------");
+        graphController.printShortestDistance(1, 5);
+        System.out.println("------caso4---------");
+        graphController.printShortestDistance(5, 59);
+        System.out.println("------caso5---------");
+        graphController.printShortestDistance(10, 0);
+        System.out.println("------caso6---------");
+        graphController.printShortestDistance(45, 8765);
+
     }
 }

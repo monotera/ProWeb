@@ -9,19 +9,22 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+import java.util.Stack;
 
 public class GalaxyGraphController {
     GalaxyGraph galaxy = new GalaxyGraph();
     ArrayList<Integer> aux = new ArrayList<>();
     Random random = new Random();
+    private int c;
 
     public void generateGalaxy() {
+        generateGraph();
+        while (!isConnected()) {
+            generateGraph();
+        }
+    }
 
-        /*
-         * int c = random.nextInt(galaxy.getVertices()); for (int i = 0; i <
-         * galaxy.getVertices(); i++) { if (c != i) addEdge(c, i); }
-         */
-
+    public void generateGraph() {
         for (int i = 0; i < galaxy.getEdges(); i++) {
 
             int v = random.nextInt(galaxy.getVertices());
@@ -40,10 +43,51 @@ public class GalaxyGraphController {
             galaxy.getAdjacencyList().get(w).add(v);
     }
 
+    public Boolean isConnected() {
+        ArrayList<Boolean> v = DFS(0);
+        if (v.contains(Boolean.FALSE)) {
+            System.out.println("No es conexo");
+            return false;
+        }
+
+        System.out.println("Es conexo");
+        return true;
+
+    }
+
+    public ArrayList<Boolean> DFS(int s) {
+
+        ArrayList<Boolean> visited = new ArrayList<>(Arrays.asList(new Boolean[galaxy.getVertices()]));
+        Collections.fill(visited, Boolean.FALSE);
+
+        Stack<Integer> stack = new Stack<>();
+
+        stack.push(s);
+
+        while (stack.empty() == false) {
+            s = stack.peek();
+            stack.pop();
+            if (visited.get(s) == false) {
+                visited.set(s, true);
+            }
+            Iterator<Integer> itr = galaxy.getAdjacencyList().get(s).iterator();
+            while (itr.hasNext()) {
+                int v = itr.next();
+                if (!visited.get(v))
+                    stack.push(v);
+            }
+
+        }
+        return visited;
+    }
+
     public void clearGraph() {
         for (int i = 0; i < galaxy.getVertices(); i++)
             galaxy.getAdjacencyList().get(i).clear();
         galaxy.getAdjacencyList().clear();
+        galaxy.setAdjacencyList(new ArrayList<>(galaxy.getVertices()));
+        for (int i = 0; i < galaxy.getVertices(); i++)
+            galaxy.getAdjacencyList().add(new ArrayList<>());
     }
 
     public boolean BFS(int src, int dest, ArrayList<Integer> pred, ArrayList<Integer> dist) {
@@ -59,15 +103,17 @@ public class GalaxyGraphController {
 
         while (!queue.isEmpty()) {
             int u = queue.remove();
-            for (int i = 0; i < galaxy.getAdjacencyList().get(u).size(); i++) {
-                if (visited.get(galaxy.getAdjacencyList().get(u).get(i)) == false) {
-                    visited.set(galaxy.getAdjacencyList().get(u).get(i), Boolean.TRUE);
-                    dist.set(galaxy.getAdjacencyList().get(u).get(i), dist.get(u) + 1);
-                    pred.set(galaxy.getAdjacencyList().get(u).get(i), u);
-                    queue.add(galaxy.getAdjacencyList().get(u).get(i));
+            if (u != c) {
+                for (int i = 0; i < galaxy.getAdjacencyList().get(u).size(); i++) {
+                    if (visited.get(galaxy.getAdjacencyList().get(u).get(i)) == false) {
+                        visited.set(galaxy.getAdjacencyList().get(u).get(i), Boolean.TRUE);
+                        dist.set(galaxy.getAdjacencyList().get(u).get(i), dist.get(u) + 1);
+                        pred.set(galaxy.getAdjacencyList().get(u).get(i), u);
+                        queue.add(galaxy.getAdjacencyList().get(u).get(i));
 
-                    if (galaxy.getAdjacencyList().get(u).get(i) == dest)
-                        return true;
+                        if (galaxy.getAdjacencyList().get(u).get(i) == dest)
+                            return true;
+                    }
                 }
             }
         }
@@ -84,7 +130,7 @@ public class GalaxyGraphController {
         ArrayList<Integer> dist = new ArrayList<>(Collections.nCopies(galaxy.getVertices(), Integer.MAX_VALUE));
 
         if (BFS(s, dest, pred, dist) == false) {
-            System.out.println("Given source and destination" + "are not connected");
+            System.out.println("No hay camino");
             return;
         }
 
@@ -97,14 +143,10 @@ public class GalaxyGraphController {
             crawl = pred.get(crawl);
         }
 
-        // Print distance
-        System.out.println("Shortest path length is: " + dist.get(dest));
-
-        // Print path
-        System.out.println("Path is ::");
         for (int i = path.size() - 1; i >= 0; i--) {
             System.out.print(path.get(i) + " ");
         }
+        System.out.println("---------------");
     }
 
     public void printGraph() {
