@@ -1,44 +1,30 @@
 [
   {
-    "id": 1,
-    "name": "Paseo Caiman",
-    "place_departure": "Medellin",
-    "place_arrival": "Nicaragua",
-    "date": "2020-01-01"
-  },
-  {
-    "id": 2,
-    "name": "name",
-    "place_departure": "place_departure",
-    "place_arrival": "lugar_llegada",
-    "date": "fecha"
+    "id": 0,
+    "name": "Paseo 3",
+    "place_departure": "Med",
+    "place_arrival": "Bog",
+    "date": "2020-10-10"
   },
   {
     "id": 3,
-    "name": "dsad2",
-    "place_departure": "sad",
-    "place_arrival": "sad",
-    "date": "159"
-  },
-  {
-    "id": 4,
-    "name": "dsad2",
-    "place_departure": "sad",
-    "place_arrival": "sad",
-    "date": "159"
+    "name": "paseo",
+    "place_departure": "Med",
+    "place_arrival": "Bog",
+    "date": "2020-10-10"
   },
   {
     "id": 5,
-    "name": "dsad2",
-    "place_departure": "sad",
-    "place_arrival": "sad",
-    "date": "159"
+    "name": "paseo",
+    "place_departure": "Med",
+    "place_arrival": "Bog",
+    "date": "2020-10-10"
   },
   {
     "id": 6,
-    "name": "dsad2",
-    "place_departure": "sad",
-    "place_arrival": "sad",
-    "date": "159"
+    "name": "paseo 8",
+    "place_departure": "Med",
+    "place_arrival": "Bog",
+    "date": "2021-22-10"
   }
 ]

@@ -1,6 +1,7 @@
 package co.taller2.api;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -8,6 +9,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
@@ -16,6 +18,7 @@ import javax.ws.rs.core.Response;
 @Path("API")
 public class TripControllers {
     DataController dc = new DataController();
+    Random random = new Random();
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
@@ -61,15 +64,18 @@ public class TripControllers {
     @Produces(MediaType.APPLICATION_JSON)
     public Response createTrip(Trip trip) {
         ArrayList<Trip> trips = dc.getData();
-        trip.setId(trips.size());
+        if (trips.size() == 0)
+            trip.setId(0);
+        else
+            trip.setId(trips.get(trips.size() - 1).getId() + 1);
         trips.add(trip);
         dc.writeData(trips);
         return Response.status(201).entity(trip).build();
     }
 
     @DELETE
-    @Path("delete_trip")
-    public Response deleteTrip(@QueryParam("id") int id) {
+    @Path("delete_trip/{id}")
+    public Response deleteTrip(@PathParam("id") int id) {
         ArrayList<Trip> trips = dc.getData();
         for (Trip trip : trips) {
             if (trip.getId() == id) {
