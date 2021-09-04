@@ -1,3 +1,4 @@
+/home/monotera/Documents/ProWeb/Front-end/Springboot/Taller_REST/server/src/main/java/co/taller2/api/CorsFilter.java
 /home/monotera/Documents/ProWeb/Front-end/Springboot/Taller_REST/server/src/main/java/co/taller2/api/DataController.java
 /home/monotera/Documents/ProWeb/Front-end/Springboot/Taller_REST/server/src/main/java/co/taller2/api/Trip.java
 /home/monotera/Documents/ProWeb/Front-end/Springboot/Taller_REST/server/src/main/java/co/taller2/api/Main.java
