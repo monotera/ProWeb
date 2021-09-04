@@ -32,6 +32,18 @@ public class TripControllers {
     }
 
     @GET
+    @Path("get_ids")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getIds() {
+        ArrayList<Trip> trips = dc.getData();
+        ArrayList<Integer> ids = new ArrayList<>();
+        for (Trip trip : trips) {
+            ids.add(trip.getId());
+        }
+        return Response.ok(ids).build();
+    }
+
+    @GET
     @Path("trip")
     @Produces(MediaType.APPLICATION_JSON)
     public Response findtripById(@QueryParam("id") int id) {
