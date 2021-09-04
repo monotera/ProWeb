@@ -6,13 +6,17 @@
         <router-link class="link" to="/">Productos</router-link>
       </li>
       <li>
-        <router-link class="link" to="/create_products">Crear</router-link>
+        <router-link class="link" to="/create">Crear</router-link>
       </li>
       <li>
-        <router-link class="link" to="/update_product">Modificar</router-link>
+        <a href="https://github.com/monotera"
+          ><v-icon class="icon">{{ "mdi-github" }}</v-icon></a
+        >
       </li>
       <li>
-        <router-link class="link" to="/delete_product">Eliminar</router-link>
+        <a href="https://www.linkedin.com/in/nelson-mosquera-2414aa170/">
+          <v-icon class="icon">{{ "mdi-linkedin" }}</v-icon>
+        </a>
       </li>
     </ul>
   </nav>
@@ -47,8 +51,11 @@ ul {
     color: white;
     text-decoration: none;
   }
-  .router-link-active {
+  .router-link-exact-active {
     color: rgb(71, 245, 245);
+  }
+  .icon {
+    color: white;
   }
 }
 </style>

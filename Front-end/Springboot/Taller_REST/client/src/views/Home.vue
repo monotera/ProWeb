@@ -1,14 +1,17 @@
 <template>
   <v-main class="products">
-    <ProductCard
-      v-for="trip in trips"
-      :key="trip.id"
-      :id="trip.id"
-      :title="trip.name"
-      :subTitle="trip.date"
-      :arrival="trip.place_arrival"
-      :depature="trip.place_departure"
-    />
+    <div class="products-container">
+      <ProductCard
+        class="card"
+        v-for="trip in trips"
+        :key="trip.id"
+        :id="trip.id"
+        :title="trip.name"
+        :subTitle="trip.date"
+        :arrival="trip.place_arrival"
+        :depature="trip.place_departure"
+      />
+    </div>
   </v-main>
 </template>
 
@@ -23,7 +26,7 @@ export default {
     trips: [],
   }),
   mounted() {
-    let url = "http://localhost:3000/API/trips";
+    let url = `${this.$store.getters.getUrlBase}trips`;
     axios.get(url).then(({ data }) => {
       this.trips = data;
     });
@@ -31,4 +34,16 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.products-container {
+  margin: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+.card {
+  margin: 1em;
+}
+</style>

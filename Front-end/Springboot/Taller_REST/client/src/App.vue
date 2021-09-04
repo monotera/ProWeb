@@ -18,6 +18,7 @@ export default {
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Pattaya&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -25,5 +26,8 @@ export default {
 }
 html {
   overflow-y: auto !important;
+}
+.link {
+  text-decoration: none;
 }
 </style>

@@ -1,27 +1,25 @@
 <template>
-  <v-container>
-    <v-row align="center" justify="center">
-      <v-col cols="12" sm="4">
-        <v-card max-width="344" class="card" dark elevation="3">
-          <v-card-title>{{ title }}</v-card-title>
-          <v-card-subtitle>{{ `id: ${id} ${subTitle}` }}</v-card-subtitle>
-          <v-divider></v-divider>
-          <v-card-text>
-            <p>{{ `Lugar de llegada: ${arrival}` }}</p>
-            <p>{{ `Lugar de salida: ${depature}` }}</p>
-          </v-card-text>
-          <v-card-actions
-            ><v-btn class="delete" @click="deleteTrip" text>
-              Eliminar
-            </v-btn>
-            <v-btn class="mod_name" @click="updateName" text>
-              Modificar Nombre
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+  <v-card max-width="344" class="card" dark elevation="3">
+    <v-card-title>{{ title }}</v-card-title>
+    <v-card-subtitle>{{ `id: ${id} Fecha: ${subTitle}` }}</v-card-subtitle>
+    <v-divider></v-divider>
+    <v-card-text>
+      <p>{{ `Lugar de llegada: ${arrival}` }}</p>
+      <p>{{ `Lugar de salida: ${depature}` }}</p>
+    </v-card-text>
+    <v-card-actions
+      ><v-btn @click="deleteTrip" text>
+        <router-link class="delete link" :to="`/delete/${id}`">
+          Eliminar
+        </router-link>
+      </v-btn>
+      <v-btn class="mod_name" text>
+        <router-link class="mod_name link" :to="`/update?id=${id}`">
+          Modificar Nombre
+        </router-link>
+      </v-btn>
+    </v-card-actions>
+  </v-card>
 </template>
 
 <script>
@@ -38,7 +36,7 @@ export default {
       this.$router.push("/update_trip?id=1");
     },
     deleteTrip() {
-      this.$router.push("/delete");
+      this.$router.push(`/delete/${this.id}`);
     },
   },
 };
@@ -52,6 +50,6 @@ export default {
   color: rgb(153, 247, 115) !important;
 }
 .delete {
-  color: rgb(207, 207, 207);
+  color: rgb(224, 224, 224);
 }
 </style>

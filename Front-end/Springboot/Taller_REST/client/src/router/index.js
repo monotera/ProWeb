@@ -2,6 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Delete from "../views/Delete.vue";
+import UpdateName from "@/views/UpdateName";
+import Create from "@/views/Create";
 
 Vue.use(VueRouter);
 
@@ -12,9 +14,19 @@ const routes = [
     component: Home,
   },
   {
-    path: "/delete",
+    path: "/delete/:id",
     name: "Delete",
     component: Delete,
+  },
+  {
+    path: "/update",
+    name: "Update",
+    component: UpdateName,
+  },
+  {
+    path: "/create",
+    name: "create",
+    component: Create,
   },
 ];
 

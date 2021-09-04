@@ -1,18 +1,45 @@
 <template>
-  <h1>Delet</h1>
+  <div class="delete-wrapper">
+    <h1>
+      El paseo {{ deleted_object.name }} con id {{ deleted_object.id }} se ha
+      eliminado!
+    </h1>
+    <img src="../assets/img/success.svg" />
+  </div>
 </template>
 
 <script>
 import axios from "axios";
+
 export default {
+  data() {
+    return {
+      deleted_object: null,
+    };
+  },
   mounted() {
-    let url = `http://localhost:3000/API/delete_trip/5`;
+    let url = `${this.$store.getters.getUrlBase}delete_trip/${this.$route.params.id}`;
 
     axios.delete(url).then((res) => {
-      console.log(res);
+      this.deleted_object = res.data;
     });
   },
 };
 </script>
 
-<style></style>
+<style scoped>
+.delete-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100%;
+}
+h1 {
+  text-align: center;
+}
+img {
+  width: 500px;
+}
+</style>
