@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Paseo Caiman",
+    "place_departure": "Medellin",
+    "place_arrival": "Nicaragua",
+    "date": "2020-01-01"
+  },
+  {
+    "id": 2,
+    "name": "name",
+    "place_departure": "place_departure",
+    "place_arrival": "lugar_llegada",
+    "date": "fecha"
+  },
+  {
+    "id": 3,
+    "name": "dsad2",
+    "place_departure": "sad",
+    "place_arrival": "sad",
+    "date": "159"
+  }
+]

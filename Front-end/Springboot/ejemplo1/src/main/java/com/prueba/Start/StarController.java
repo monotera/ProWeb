@@ -9,6 +9,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.Map.Entry;
 import com.fasterxml.jackson.databind.util.TypeKey;
@@ -21,28 +22,41 @@ public class StarController {
         this.stars = stars;
     }
 
-    public void findNearStars(Star star, int index) {
+    public void findNearStars(Star star) {
 
+        if (!star.getNearStars().isEmpty())
+            return;
         double distancia;
         Star starAux;
         for (int i = 0; i < stars.size(); i++) {
             starAux = stars.get(i);
             distancia = distFunction(star.getX(), star.getY(), star.getZ(), starAux.getX(), starAux.getY(),
                     starAux.getZ());
-            System.out.print(distancia + " , ");
             nearStars.put(i, distancia);
         }
-        System.out.println("-----------------\n");
-        nearStars.entrySet().forEach(entry -> {
-            System.out.println(entry.getKey() + " => " + entry.getValue());
-        });
-
         nearStars = sortByValue(nearStars);
-        System.out.println("-----------------\n");
-        nearStars.entrySet().forEach(entry -> {
-            System.out.println(entry.getKey() + " => " + entry.getValue());
-        });
+        star.setNearStars(set10Nearest());
+        printMap(star.getNearStars());
 
+    }
+
+    public void printMap(HashMap<Integer, Double> map) {
+        map.entrySet().forEach(entry -> {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        });
+    }
+
+    public HashMap<Integer, Double> set10Nearest() {
+        HashMap<Integer, Double> auxMap = new HashMap<>();
+        int i = 0;
+        for (Map.Entry<Integer, Double> entry : nearStars.entrySet()) {
+            if (i != 0)
+                auxMap.put(entry.getKey(), entry.getValue());
+            if (i >= 10)
+                break;
+            i++;
+        }
+        return auxMap;
     }
 
     public double distFunction(int x1, int y1, int z1, int x2, int y2, int z2) {

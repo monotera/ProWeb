@@ -9,7 +9,7 @@ public class Star {
     private int y;
     private int z;
     private String name;
-    private Map<Integer, Double> nearStars = new HashMap<>();
+    private HashMap<Integer, Double> nearStars = new HashMap<>();
     private Boolean isInHabited;
 
     public Star() {
@@ -56,11 +56,11 @@ public class Star {
         this.z = z;
     }
 
-    public Map<Integer, Double> getNearStars() {
+    public HashMap<Integer, Double> getNearStars() {
         return nearStars;
     }
 
-    public void setNearStars(Map<Integer, Double> nearStars) {
+    public void setNearStars(HashMap<Integer, Double> nearStars) {
         this.nearStars = nearStars;
     }
 

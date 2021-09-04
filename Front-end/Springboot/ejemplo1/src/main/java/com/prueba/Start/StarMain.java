@@ -15,7 +15,7 @@ public class StarMain {
         }
         starController = new StarController(stars);
 
-        starController.findNearStars(stars.get(3), 3);
+        starController.findNearStars(stars.get(0));
 
     }
 }
