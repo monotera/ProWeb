@@ -1,0 +1,29 @@
+body {
+    border: 2px solid black;
+    padding: 0 2em 2em 1em;
+}
+
+.title {
+    text-decoration: line-through underline overline;
+    font-weight: bolder;
+    
+}
+
+.image-wrapper {
+    border: 2px solid black;
+    width: 80%;
+    display: flex;
+    align-items: center;
+}
+
+.img1 {
+    border: 2px solid blue;
+    margin: 0 2em 0 1em;
+    box-shadow: 10px 10px black;
+
+}
+
+.img2 {
+    padding: 2em;
+    border:  dashed 3px red;
+}
