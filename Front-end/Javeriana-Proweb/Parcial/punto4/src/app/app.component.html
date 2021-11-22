@@ -1,0 +1,15 @@
+<div class="main-wrapper">
+  <h1>Foto Selecionada</h1>
+  <img src="{{ mainUrl }}" alt="" width="600" />
+  <h1>Seleccione una foto</h1>
+  <div>
+    <img
+      id="{{index}}"
+      class="min"
+      (click)="changePhoto(item.url)"
+      *ngFor="let item of info; let index=index"
+      src="{{ item.thumbnailUrl }}"
+      alt="{{ item.title }}"
+    />
+  </div>
+</div>

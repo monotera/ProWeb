@@ -1,0 +1,12 @@
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.min {
+    cursor: pointer;
+}
+.min:hover {
+    width: 162px;
+    padding: 0.5em;
+}

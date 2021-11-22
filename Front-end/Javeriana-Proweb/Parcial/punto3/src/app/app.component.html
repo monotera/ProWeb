@@ -1,13 +1,13 @@
 <h1>Arma tu sandwich</h1>
-    <div class="main-wrapper">
-      <select name="miselect" [(ngModel)]="seleccionados" multiple>
-        <option [value]="item" *ngFor="let item of lista">{{item}}</option>
-      </select>
+<div class="main-wrapper">
+    <select id="firstSelect" name="miselect" [(ngModel)]="seleccionados" multiple>
+      <option [value]="item" *ngFor="let item of lista">{{item}}</option>
+    </select>
     <div class="btns">
-        <button (click) = "addElement()" id="addBtn">Agregar</button>
-        <button (click) = "removeElement()" id="removeBtn">Remover</button>
+        <button id="addBtn" (click) = "addElement()" id="addBtn">Agregar</button>
+        <button id="removeBtn" (click) = "removeElement()" id="removeBtn">Remover</button>
     </div>
-    <select name="miselect" [(ngModel)]="seleccionados2" multiple>
+    <select id="SecondSelect" name="miselect" [(ngModel)]="seleccionados2" multiple>
       <option [value]="item" *ngFor="let item of lista2">{{item}}</option>
     </select> 
-    </div>
+</div>

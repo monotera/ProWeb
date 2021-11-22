@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title = 'punto3';
   lista:string[]=["Pan","Pollo","Carne", "Tomate", "Lechuga"];
   seleccionados:string[]=[];
   seleccionados2:string[]=[];

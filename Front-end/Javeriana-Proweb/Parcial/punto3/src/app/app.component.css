@@ -1,0 +1,8 @@
+.main-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+.btns {
+    display: flex;
+    flex-direction: column;
+}
